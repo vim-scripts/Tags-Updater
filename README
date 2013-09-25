@@ -1,0 +1,37 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4728
+
+This script is a very simple utility to help you to update tags automatically.
+It will update the tags after saving a file.
+
+DEPENDING:
+  * ctags
+  * sed
+  * grep
+
+USAGE:
+  $ ctags -R
+  $ vim <file> # now tags will update automatically
+
+OPTIONS:
+  g:tags_updater_update_exist     integer (default 0)
+      If not 0, Tags Updater only updates tags of file which the file is
+      already in tags file
+
+  g:tags_updater_ctags_program    string (default 'ctags')
+      The ctags program.
+
+LIMITATION:
+  If g:tags_updater_update_exist is 0, the file under directory of tags will
+  be updated. For example, case 1 will not be updated and case 2 will be.
+
+  case 1:
+      dir
+      |-- a
+      |   `-- tags
+      `-- file
+
+  case 2:
+      dir
+      |-- a
+      |   `-- file
+      `-- tags
